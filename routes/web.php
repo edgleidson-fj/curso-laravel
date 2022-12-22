@@ -18,3 +18,7 @@ Route::get('/', 'PrincipalController@principal');
 Route::get('/sobrenos', 'SobrenosController@sobrenos');
 
 Route::get('/contato', 'ContatoController@contato');
+
+Route::get('/contato/{nome}', function(string $nome){
+    echo'teste '.$nome;
+});
