@@ -25,17 +25,7 @@ Route::prefix('/app')->group(function () {
     Route::get('/produtos', function () { return 'Produtos'; })->name('app.produtos');
 });
 
-Route::get('/rota1', function(){
-    echo "Rota 1";
-})->name('site.rota1');
-
-//Redirect ex:1
-Route::get('/rota2', function(){
-    return redirect()->route('site.total1');
-})->name('site.rota2');
-
-//Redirect ex:2
-// Route::redirect('/rota2', '/rota1');
+Route::get('/teste/{p1}/{p2}', 'TesteController@teste')->name('teste');
 
 
 Route::fallback(function(){
