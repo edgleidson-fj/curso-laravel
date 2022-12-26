@@ -1,3 +1,13 @@
-<?php
+<h3>Site principal</h3>
 
-echo 'Site principal';
+<ul>
+    <li>
+        <a href="/">Principal</a>
+    </li>
+    <li>
+    <a href="/sobrenos">Sobre nós</a>
+    </li>
+    <li>
+    <a href="/contato">Contato</a>
+    </li>
+</ul>
