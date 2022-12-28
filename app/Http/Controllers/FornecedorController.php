@@ -17,6 +17,10 @@ class FornecedorController extends Controller
                 'status'=>'S']    
         ];
 
+        //Ternário
+        $msg = isset($fornecedores[1]['cnpj']) ? 'CNPJ informado' : 'CNPJ não informado';
+        echo $msg;
+        
         return view('app.fornecedor.index', compact('fornecedores'));
         //return view('app.fornecedor.index');
     }
