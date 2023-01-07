@@ -1,5 +1,7 @@
 @extends('site.layout.basico') <!--Extends -- Layout base-->
 
+@section('titulo', $titulo) <!--Section -- Título da página-->
+
 @section('conteudo') <!--Section -- Conteúdo da página-->
     <div class="topo">
 
