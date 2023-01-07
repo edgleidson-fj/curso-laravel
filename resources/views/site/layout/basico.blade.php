@@ -7,6 +7,7 @@
     </head>
 
     <body>
+        @include('site.layout._partials.topo') <!--Include - Topo e Menu da página-->
         @yield('conteudo') <!--Yield -- Pegar conteúdo da section-->
     </body>
 </html>
