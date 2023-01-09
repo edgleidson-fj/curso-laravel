@@ -10,7 +10,9 @@
 
         <div class="informacao-pagina">
             <div class="contato-principal">
-                @component('site.layout._components.form_contato')  <!--Component -- Obs: Para adicionar View em forma de componente-->                    
+                @component('site.layout._components.form_contato', ['classe'=>'borda-preta'])  <!--Component -- Obs: Para adicionar View em forma de componente-->  
+                    <p>A nosssa equipe analisará a sua mensagem e retornaremos o mais brevemente possível!</p>
+                    <p>Nosso rempo médio de resposta é de 48 horas.</p>                  
                 @endcomponent
             </div>
         </div>  
