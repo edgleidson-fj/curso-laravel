@@ -12,13 +12,17 @@ class SiteContatoSeeder extends Seeder{
      */
     public function run()
     {
-        $c = new SiteContato();
-        $c->nome ='Sistema SG';
-        $c->telefone = '45646546585';
-        $c->email ='jlgkdflkjdfgk';
-        $c->motivo_contato = 1;
-        $c->mensagem ='Teste';
-        $c->terminal;
-        $c->save();
+        // $c = new SiteContato();
+        // $c->nome ='Sistema SG';
+        // $c->telefone = '45646546585';
+        // $c->email ='jlgkdflkjdfgk';
+        // $c->motivo_contato = 1;
+        // $c->mensagem ='Teste';
+        // $c->terminal;
+        // $c->save();
+
+
+        //Gerar 100 registros aleatóriamente utilizando o Factory
+        factory(SiteContato::class, 100)->create();
     }
 }

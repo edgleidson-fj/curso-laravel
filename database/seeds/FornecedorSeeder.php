@@ -18,7 +18,7 @@ class FornecedorSeeder extends Seeder
         $f = new Fornecedor();
         $f->nome = 'Fornecedor 123';
         $f->site = 'fornecedor123.com.br';
-        $f->uf = 'DF';
+        $f->uf = 'TO';
         $f->email = 'fornecedor123@teste.com';
         $f->save();  
 
