@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\SiteContato;
 
 class ContatoController extends Controller
 {
@@ -10,10 +11,34 @@ class ContatoController extends Controller
         //var_dump($_POST);
         //dd($request->all()); 
 
+        /*
         echo'<pre>';
-        print_r($request->all()); //Request com todos dados
+        print_r($request->all()); //Request com tudo
         echo'</br>';
-        echo $request->input('nome'); //Request de dados especificos
+        echo $request->input('nome'); //Request de dado especifico
+        */
+
+        /*/1º forma
+        $contato = new SiteContato();
+        $contato->nome = $request->input('nome');
+        $contato->email = $request->input('email');
+        $contato->telefone = $request->input('telefone');
+        $contato->motivo_contato = $request->input('motivo_contato');
+        $contato->mensagem = $request->input('mensagem');
+        //print_r($contato->getAttributes()); //Request com todos dados
+        $contato->save(); //Salvar no Banco
+        //---------------------------------------*/
+
+        /*/2º forma - Obs: Necessita que a Model esteja com o fillable definido
+        $contato = new SiteContato();
+        $contato->fill($request->all());
+        //print_r($contato->getAttributes());
+        $contato->save(); 
+        //--------------------------------------*/
+
+        //3º forma - Obs: Necessita que a Model esteja com o fillable definido
+        $contato = new SiteContato();
+        $contato->create($request->all());   //Salvar no Banco*/     
 
         return view('site.contato', ['titulo'=>'Contato']);
     }
