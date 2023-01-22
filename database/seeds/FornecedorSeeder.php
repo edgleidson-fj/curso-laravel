@@ -18,11 +18,11 @@ class FornecedorSeeder extends Seeder
         $f = new Fornecedor();
         $f->nome = 'Fornecedor 123';
         $f->site = 'fornecedor123.com.br';
-        $f->uf = 'TO';
+        $f->uf = 'BA';
         $f->email = 'fornecedor123@teste.com';
         $f->save();  
 
-        //2ª forma
+        //2ª forma - Obs: Necessário do $fillable definido no Model
         Fornecedor::create([
             'nome'=>'Fornecedor 200',
             'site'=> 'fornecedor200.com.br',
@@ -30,7 +30,7 @@ class FornecedorSeeder extends Seeder
             'email'=>'contato@teste.com'
         ]);
 
-        //3ª forma
+        //3ª forma - Obs: Necessário do $fillable definido no Model
         DB::table('fornecedores')->insert([
             'nome'=>'Fornecedor 300',
             'site'=> 'fornecedor300.com.br',

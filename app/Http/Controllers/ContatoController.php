@@ -37,9 +37,23 @@ class ContatoController extends Controller
         //--------------------------------------*/
 
         //3º forma - Obs: Necessita que a Model esteja com o fillable definido
-        $contato = new SiteContato();
-        $contato->create($request->all());   //Salvar no Banco*/     
+        // $contato = new SiteContato();
+        // $contato->create($request->all());   //Salvar no Banco*/     
 
         return view('site.contato', ['titulo'=>'Contato']);
+    }
+
+
+    public function salvar(Request $request){
+        //Validação
+        $request->validate([
+            'nome'=>'required',
+            'telefone'=>'required',
+            'email'=>'required',
+            'motivo_contato'=>'required',
+            'mensagem'=>'required',
+        ]);
+
+        //SiteContato::create($request->all());
     }
 }
