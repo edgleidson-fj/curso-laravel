@@ -40,7 +40,13 @@ class ContatoController extends Controller
         // $contato = new SiteContato();
         // $contato->create($request->all());   //Salvar no Banco*/     
 
-        return view('site.contato', ['titulo'=>'Contato']);
+        $motivo_contatos = [
+            '1'=>'Dúvida',
+            '2'=>'Elogio',
+            '3'=>'Reclamação'
+        ];
+
+        return view('site.contato', ['titulo'=>'Contato', 'motivo_contatos'=>$motivo_contatos]);
     }
 
 
