@@ -20,9 +20,11 @@
     <button type="submit" class="{{ $classe }}">ENVIAR</button>
 </form>
 
-
+<!--Exibe os erros de validação, caso exija-->
+@if($errors->any())
 <div style="position:absolute; top:0px; left:0px; width:100%; background: red;">
-    <pre>
-        {{ print_r($errors) }}
-    </pre>
+    @foreach ($errors->all() as $erro)
+        {{ $erro }}<br>
+    @endforeach
 </div>
+@endif
