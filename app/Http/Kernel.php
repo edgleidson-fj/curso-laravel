@@ -68,5 +68,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //---------------------------------------------------------------------
         'log.acesso'=>  \App\Http\Middleware\LogAcessoMiddleware::class, //Log de acesso
+        'autenticacao'=>  \App\Http\Middleware\AutenticacaoMiddleware::class, //Autenticação
     ];
 }
