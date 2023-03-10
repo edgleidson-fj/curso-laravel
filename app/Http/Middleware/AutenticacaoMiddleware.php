@@ -25,10 +25,10 @@ class AutenticacaoMiddleware
         }
 
         if($perfil == 'visitante'){
-            echo'Exibir apenas alguns recursos';
+            echo"Exibir apenas alguns recursos $perfil <br>";
         }
         else{
-            echo'Carregar o perfil do banco de dados';
+            echo"Carregar o perfil do banco de dados  $perfil <br>";
         }
 
         //Verifica se o usuário possui acesso a rota
