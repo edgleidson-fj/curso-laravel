@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Middleware\LogAcessoMiddleware; //Middleware
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(LogAcessoMiddleware::class)->get('/', 'PrincipalController@principal')->name('site.index'); //Rota utilizando Middleware
+Route::get('/', 'PrincipalController@principal')->name('site.index');
 Route::get('/sobrenos', 'SobrenosController@sobrenos')->name('site.sobrenos');
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
