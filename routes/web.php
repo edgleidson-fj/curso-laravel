@@ -13,15 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PrincipalController@principal')->name('site.index')->middleware('log.acesso'); //Acessando Middleware através do apelido definido no Kernel
+Route::get('/', 'PrincipalController@principal')->name('site.index');
 Route::get('/sobrenos', 'SobrenosController@sobrenos')->name('site.sobrenos');
 Route::get('/contato', 'ContatoController@contato')->name('site.contato');
 Route::post('/contato', 'ContatoController@salvar')->name('site.contato');
 Route::get('/login', function () { return 'Login'; })->name('site.login');
 
-//Agrupamento de rotas
-Route::prefix('/app')->group(function () {
-    Route::get('/clientes', function () { return 'Clientes'; })->name('app.clientes')->middleware('log.acesso','autenticacao'); //Encadeamento de Middleware
+//Agrupamento de rotas utilizando Middleware
+Route::middleware('autenticacao')->prefix('/app')->group(function () {
+    Route::get('/clientes', function () { return 'Clientes'; })->name('app.clientes');
     Route::get('/fornecedores','FornecedorController@index')->name('app.fornecedores');
     Route::get('/produtos', function () { return 'Produtos'; })->name('app.produtos');
 });

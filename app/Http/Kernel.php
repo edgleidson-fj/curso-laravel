@@ -38,7 +38,7 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             //-------------------------------------------------------
-            //\App\Http\Middleware\LogAcessoMiddleware::class, //Log de acesso
+            \App\Http\Middleware\LogAcessoMiddleware::class, //Log de acesso
 
         ],
 
@@ -67,7 +67,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         //---------------------------------------------------------------------
-        'log.acesso'=>  \App\Http\Middleware\LogAcessoMiddleware::class, //Log de acesso
+        //'log.acesso'=>  \App\Http\Middleware\LogAcessoMiddleware::class, //Log de acesso
         'autenticacao'=>  \App\Http\Middleware\AutenticacaoMiddleware::class, //Autenticação
     ];
 }
