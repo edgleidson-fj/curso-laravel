@@ -8,7 +8,8 @@ use App\MotivoContato;
 
 class ContatoController extends Controller
 {
-    public function contato(Request $request){
+    public function contato(Request $request)
+    {
         //var_dump($_POST);
         //dd($request->all()); 
 
@@ -43,21 +44,34 @@ class ContatoController extends Controller
 
         $motivo_contatos = MotivoContato::all(); //Buscar tudo
 
-        return view('site.contato', ['titulo'=>'Contato', 'motivo_contatos'=>$motivo_contatos]);
+        return view('site.contato', ['titulo' => 'Contato', 'motivo_contatos' => $motivo_contatos]);
     }
 
 
-    public function salvar(Request $request){
+    public function salvar(Request $request)
+    {
         //Validação
-        $request->validate([
-            'nome'=>'required|min:3|max:40|unique:site_contatos',
-            'telefone'=>'required',
-            'email'=>'email',
-            'motivo_contatos_id'=>'required',
-            'mensagem'=>'required|max:200',
-        ]);
+        $request->validate(
+            [
+                'nome' => 'required|min:3|max:40|unique:site_contatos',
+                'telefone' => 'required',
+                'email' => 'email',
+                'motivo_contatos_id' => 'required',
+                'mensagem' => 'required|max:200',
+            ],
+            [
+                'nome.required'=>'O campo nome precisa ser preenchido', //Especifíco
+                'nome.min'=>'O campo nome precisa ter no mínimo 3 caracteres',
+                'nome.max'=>'O campo nome deve ter no máximo 40 caracteres',
+                'nome.unique'=>'O nome informado já está em uso no sistema',
+                'email.email'=>'Email inválido',
+                'motivo_contatos_id.required'=>'O campo motivo contato é obrigatório',
+                'mensagem.max'=>'O campo mensagem deve ter no máximo 200 caracteres',
+                'required'=>'O campo :attribute é obrigatório' //Genérico
+            ]
+        );
 
         SiteContato::create($request->all());
-        return redirect()->route('site.index'); ; //Redirecionamento de rota
+        return redirect()->route('site.index');; //Redirecionamento de rota
     }
 }
