@@ -13,8 +13,24 @@ class AutenticacaoMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $metodo_autenticao, $perfil)
     {
+        echo $metodo_autenticao.' - '.$perfil.'<br>';
+
+        if($metodo_autenticao == 'padrao'){
+            echo"Verificar usuário e senha no banco de dados $perfil <br>";
+        }
+        if($metodo_autenticao == 'ldap'){
+            echo"Verificar usuário e senha no Active Directory $perfil <br>";
+        }
+
+        if($perfil == 'visitante'){
+            echo'Exibir apenas alguns recursos';
+        }
+        else{
+            echo'Carregar o perfil do banco de dados';
+        }
+
         //Verifica se o usuário possui acesso a rota
         if (false) {
             return $next($request);
